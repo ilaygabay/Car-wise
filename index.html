@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<title>CarWise — לקנות רכב בראש שקט</title>
+<style>
+:root{--ink:#07111f;--ink2:#10223c;--blue:#2f6fed;--blue2:#60a5fa;--bg:#f5f7fb;--card:#fff;--line:#e5e9f0;--muted:#667085;--green:#087443;--greenbg:#ecfdf3;--amber:#b54708;--amberbg:#fffaeb;--red:#b42318;--redbg:#fef3f2;--shadow:0 18px 55px rgba(15,23,42,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#172033;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}
+.nav{height:68px;background:rgba(7,17,31,.98);color:#fff;position:sticky;top:0;z-index:20}.navin{height:100%;max-width:1160px;margin:auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:22px;font-weight:950;letter-spacing:-.7px;cursor:pointer}.logo span{color:#60a5fa}.navlinks{display:flex;gap:5px}.navbtn{border:0;background:transparent;color:#cbd5e1;padding:10px 12px;border-radius:10px;font-size:13px;font-weight:800}.navbtn:hover{background:#ffffff10;color:#fff}.navbtn.primary{background:#2563eb;color:#fff}
+.hero{background:radial-gradient(circle at 80% 15%,rgba(59,130,246,.32),transparent 29%),linear-gradient(135deg,#07111f,#112443);color:#fff;padding:62px 18px 100px}.heroIn{max-width:1160px;margin:auto;display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}.ey{display:inline-flex;gap:8px;align-items:center;background:#ffffff0c;border:1px solid #ffffff19;border-radius:999px;padding:8px 12px;color:#bfdbfe;font-size:12px;font-weight:850}.pulse{width:7px;height:7px;border-radius:50%;background:#60a5fa;box-shadow:0 0 0 5px #60a5fa18}.hero h1{font-size:54px;line-height:1.02;letter-spacing:-2px;margin:17px 0}.hero p{font-size:18px;line-height:1.75;color:#d7e0ec;max-width:690px;margin:0}.heroBtns{display:flex;gap:10px;margin-top:27px}.heroBtns button{height:52px;border-radius:14px;padding:0 21px;border:0;font-weight:900}.heroMain{background:#3b82f6;color:#fff}.heroGhost{background:#ffffff10;color:#fff;border:1px solid #ffffff20!important}
+.mock{background:#ffffff0d;border:1px solid #ffffff18;border-radius:25px;padding:20px;backdrop-filter:blur(12px)}.mockHead{display:flex;justify-content:space-between;color:#dce6f3}.mockCar{height:150px;background:linear-gradient(145deg,#1c3b65,#0c1a2d);border-radius:17px;display:grid;place-items:center;font-size:70px;margin:15px 0}.mockBox{background:#fff;color:#101828;border-radius:16px;padding:15px}.mockBox small{color:#667085}.mockPrice{font-size:30px;font-weight:950;margin:2px 0}.mockLine{display:flex;justify-content:space-between;font-size:12px;margin-top:8px}.mockLine span{color:#667085}
+.container{max-width:1160px;margin:-48px auto 70px;padding:0 18px;position:relative}.page{display:none}.page.active{display:block}.card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:27px;box-shadow:var(--shadow);margin-bottom:18px}
+.sectionHead{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:21px}.sectionHead h2{margin:0 0 6px;font-size:23px}.sectionHead p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}.pill{font-size:11px;font-weight:850;background:#f2f4f7;color:#475467;border-radius:999px;padding:8px 10px;white-space:nowrap}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:18px}.tab{height:48px;border:1px solid var(--line);border-radius:13px;background:#fff;font-weight:850;color:#475467}.tab.active{background:#eff6ff;border-color:#8bb5ff;color:#1d4ed8}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.field label{display:block;font-size:13px;font-weight:850;margin-bottom:7px}.field input,.field select{width:100%;height:51px;border:1px solid #d0d5dd;border-radius:12px;background:#fff;padding:0 13px;color:#172033;outline:none}.field input:focus,.field select:focus{border-color:#7aa2ff;box-shadow:0 0 0 4px #dbeafe}.hint{font-size:11px;color:#98a2b3;margin-top:5px}.full{grid-column:1/-1}
+.modeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mode{position:relative}.mode input{position:absolute;opacity:0}.mode label{display:block;border:1px solid var(--line);border-radius:16px;padding:17px;text-align:center;background:#fff;cursor:pointer}.mode label b{display:block;margin-top:6px}.mode input:checked+label{border-color:#6ea0ff;background:#eff6ff;box-shadow:0 0 0 3px #dbeafe}.modeIcon{font-size:27px}
+.tradeBox{background:#f8fafc;border:1px solid var(--line);border-radius:17px;padding:17px;margin-top:17px}.tradeBox h3{margin:0 0 5px;font-size:15px}.tradeBox p{margin:0 0 13px;color:var(--muted);font-size:12px}.tradeResult{display:none;margin-top:12px;background:#ecfdf3;color:#087443;border-radius:12px;padding:11px;font-size:13px;font-weight:800}
+.buttons{display:flex;gap:10px;margin-top:22px}.btn{height:52px;border:0;border-radius:13px;padding:0 20px;font-weight:900}.blue{background:var(--blue);color:#fff;flex:1}.dark{background:var(--ink);color:#fff;flex:1}.light{background:#eef2f6;color:#344054}.danger{background:#fef3f2;color:#b42318}
+.filters{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.filter{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:12px}.filter label{display:block;font-size:11px;color:#667085;margin-bottom:5px}.filter input,.filter select{width:100%;border:0;background:transparent;outline:0;font-weight:750;color:#172033}
+.resultsHead{display:flex;justify-content:space-between;align-items:center;margin:20px 0 13px}.resultsHead h3{margin:0;font-size:18px}.sort{height:40px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 10px;font-size:12px}.cars{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.car{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;transition:.2s}.car:hover{transform:translateY(-2px);box-shadow:0 10px 30px #1018280d}.carImg{height:135px;background:linear-gradient(145deg,#e9eef6,#cbd5e1);display:grid;place-items:center;font-size:62px;position:relative}.heart{position:absolute;top:10px;left:10px;border:0;background:#fff;border-radius:50%;width:35px;height:35px}.carBody{padding:14px}.carBody h4{margin:0 0 4px;font-size:15px}.carMeta{font-size:11px;color:#667085}.carPrice{font-size:21px;font-weight:950;margin-top:10px}.carScore{font-size:11px;color:#087443;background:#ecfdf3;display:inline-block;padding:5px 8px;border-radius:999px;margin-top:8px}
+.resultHero{display:flex;align-items:center;gap:19px}.score{width:92px;height:92px;border-radius:50%;background:#eff6ff;color:#1d4ed8;box-shadow:inset 0 0 0 8px #dbeafe;display:grid;place-items:center;font-size:26px;font-weight:950;flex:none}.resultHero h2{margin:0 0 5px;font-size:26px}.resultHero p{margin:0;color:var(--muted);line-height:1.55}.bigLabel{font-size:13px;color:var(--muted);margin-top:22px}.big{font-size:47px;font-weight:950;letter-spacing:-1.5px;margin:2px 0}.resultGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:17px;margin-top:23px}.panel{border:1px solid var(--line);border-radius:18px;padding:19px}.panel h3{font-size:16px;margin:0 0 14px}.barRow{margin-bottom:13px}.barTop{display:flex;justify-content:space-between;font-size:12px}.barTop span{color:#667085}.track{height:10px;background:#eef2f6;border-radius:99px;overflow:hidden;margin-top:6px}.fill{height:100%;background:#3b82f6;border-radius:99px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:14px}.metric small{display:block;color:#667085;margin-bottom:5px}.metric b{font-size:19px}.advice{margin-top:17px;padding:17px;border-radius:15px;font-weight:750;line-height:1.65}.good{background:var(--greenbg);color:var(--green)}.warn{background:var(--amberbg);color:var(--amber)}.bad{background:var(--redbg);color:var(--red)}
+.premium{background:linear-gradient(135deg,#08111f,#172c52);color:#fff}.premium h2{margin:0 0 6px}.premium p{color:#cbd5e1;font-size:13px;line-height:1.6}.plans{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.plan{border:1px solid #ffffff1c;border-radius:17px;padding:17px;background:#ffffff09}.plan.featured{border-color:#60a5fa;background:#60a5fa0e}.plan h3{margin:0}.planPrice{font-size:25px;font-weight:950;margin:5px 0}.plan ul{padding:0 18px;margin:12px 0;color:#dbe5f2;font-size:12px;line-height:2}.payBtn{width:100%;height:45px;border:0;border-radius:11px;background:#fff;color:#10203a;font-weight:900}.payNote{font-size:10px;color:#98a2b3;margin-top:12px}
+.help{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.helpItem{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px}.helpItem strong{display:block;margin:7px 0 5px}.helpItem span{font-size:12px;color:var(--muted);line-height:1.55}
+.toast{position:fixed;bottom:20px;right:20px;background:#101828;color:#fff;border-radius:12px;padding:12px 15px;font-size:12px;display:none;z-index:50;box-shadow:0 10px 30px #0002}.footer{text-align:center;color:#98a2b3;font-size:11px;padding:0 18px 35px}
+@media(max-width:850px){.heroIn{grid-template-columns:1fr}.mock{display:none}.hero h1{font-size:43px}.filters{grid-template-columns:1fr 1fr}.cars{grid-template-columns:1fr 1fr}.resultGrid{grid-template-columns:1fr}.navlinks .hideMob{display:none}}
+@media(max-width:560px){.nav{height:62px}.tag{display:none}.navlinks{gap:0}.navbtn{padding:8px}.hero{padding:44px 17px 88px}.hero h1{font-size:35px}.hero p{font-size:16px}.heroBtns{flex-direction:column}.container{padding:0 12px;margin-top:-43px}.card{padding:20px}.grid,.plans,.help{grid-template-columns:1fr}.full{grid-column:auto}.modeGrid,.tabs{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.cars{grid-template-columns:1fr}.sectionHead{align-items:flex-start}.pill{display:none}.buttons{flex-direction:column}.light{order:2}.resultHero{align-items:flex-start}.score{width:77px;height:77px;font-size:21px}.big{font-size:39px}.metrics{grid-template-columns:1fr}.tradeBox{padding:14px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="navin"><div class="logo" onclick="home()">Car<span>Wise</span></div><div class="navlinks"><button class="navbtn hideMob" onclick="home()">ראשי</button><button class="navbtn hideMob" onclick="show('search')">חיפוש רכב</button><button class="navbtn hideMob" onclick="show('premium')">Premium</button><button class="navbtn primary" onclick="show('calculator')">בדיקת עסקה</button></div></div></nav>
+
+<header class="hero" id="hero"><div class="heroIn"><div><div class="ey"><span class="pulse"></span> קונים רכב? בודקים לפני שמחליטים</div><h1>רכב טוב הוא לא רק רכב שאתה אוהב. הוא רכב שאתה יכול להרשות לעצמך.</h1><p>CarWise מחבר בין מחיר הרכב, המימון, הרכב שיש לך היום וההוצאות החודשיות — כדי לתת לך תמונה ברורה לפני שאתה מתחייב.</p><div class="heroBtns"><button class="heroMain" onclick="show('calculator')">בדוק עסקה עכשיו →</button><button class="heroGhost" onclick="show('search')">חפש רכב לפי התקציב שלי</button></div></div><div class="mock"><div class="mockHead"><strong>CarWise</strong><span>ניתוח לדוגמה</span></div><div class="mockCar">🚙</div><div class="mockBox"><small>עלות חודשית אמיתית</small><div class="mockPrice">2,486 ₪</div><div class="mockLine"><span>מההכנסה</span><strong>27.6%</strong></div><div class="mockLine"><span>ציון עסקה</span><strong>72 / 100</strong></div></div></div></div></header>
+
+<main class="container">
+<section class="page active" id="homePage">
+<div class="card">
+<div class="sectionHead"><div><h2>מה אפשר לעשות כאן?</h2><p>כלי אחד לבחינת רכב לפני קנייה — מהמחיר ועד העלות האמיתית.</p></div></div>
+<div class="tabs"><button class="tab active" onclick="show('calculator')">💳 לבדוק עסקה</button><button class="tab" onclick="show('search')">🔎 למצוא רכב</button><button class="tab" onclick="show('premium')">⭐ Premium</button></div>
+<div class="help"><div class="helpItem">💰<strong>לחשב את העלות האמיתית</strong><span>מימון, דלק, ביטוח, טיפולים וירידת ערך במקום אחד.</span></div><div class="helpItem">🔄<strong>לקזז את הרכב הקיים</strong><span>הכנס את שווי הרכב שלך ואת מה שנשאר לך לשלם עליו.</span></div><div class="helpItem">🎯<strong>למצוא רכב שמתאים לתקציב</strong><span>חיפוש לפי מחיר, סוג רכב, תקציב חודשי ועוד.</span></div></div>
+</div>
+</section>
+
+<section class="page" id="calculator">
+<div class="card">
+<div class="sectionHead"><div><h2>בדיקת עסקה</h2><p>ספר לנו איך אתה מתכנן לקנות את הרכב. נחשב את התמונה המלאה.</p></div><span class="pill">שלב 1 מתוך 2</span></div>
+<div class="modeGrid">
+<div class="mode"><input type="radio" name="purchase" id="buy" checked onchange="toggleMode()"><label for="buy"><div class="modeIcon">💳</div><b>קנייה / מימון</b><small>רכב בבעלותך</small></label></div>
+<div class="mode"><input type="radio" name="purchase" id="lease" onchange="toggleMode()"><label for="lease"><div class="modeIcon">🔑</div><b>ליסינג</b><small>תשלום חודשי</small></label></div>
+<div class="mode"><input type="radio" name="purchase" id="cash" onchange="toggleMode()"><label for="cash"><div class="modeIcon">💵</div><b>קנייה במזומן</b><small>ללא מימון</small></label></div>
+</div>
+<div class="grid" style="margin-top:18px">
+<div class="field"><label>מחיר הרכב שאתה רוצה</label><input id="carPrice" value="150000" inputmode="decimal"></div>
+<div class="field"><label>הכנסה נטו בחודש</label><input id="income" value="12000" inputmode="decimal"></div>
+</div>
+<div class="tradeBox"><h3>יש לך רכב שאתה רוצה להחליף?</h3><p>השווי שלו יכול להקטין את הסכום שתצטרך להביא לעסקה. אם יש עליו הלוואה, נחשב גם את היתרה.</p>
+<div class="grid"><div class="field"><label>שווי משוער של הרכב הקיים</label><input id="trade" value="120000" inputmode="decimal"></div><div class="field"><label>כמה נשאר לשלם עליו?</label><input id="tradeDebt" value="0" inputmode="decimal"></div></div>
+<div class="tradeResult" id="tradeResult"></div>
+</div>
+<div class="buttons"><button class="btn blue" onclick="nextCalc()">המשך →</button><button class="btn light" onclick="home()">ביטול</button></div>
+</div>
+
+<div class="card" id="calc2" style="display:none">
+<div class="sectionHead"><div><h2>עוד כמה פרטים וננתח</h2><p>אפשר להשתמש בערכים משוערים. תמיד אפשר לשנות אותם.</p></div><span class="pill">שלב 2 מתוך 2</span></div>
+<div id="buyFields"><div class="grid"><div class="field"><label>מקדמה במזומן</label><input id="down" value="0" inputmode="decimal"></div><div class="field"><label>תקופת מימון (חודשים)</label><input id="months" value="60" inputmode="numeric"></div><div class="field"><label>ריבית שנתית</label><input id="rate" value="7" inputmode="decimal"></div></div></div>
+<div id="leaseFields" style="display:none"><div class="grid"><div class="field"><label>תשלום חודשי של הליסינג</label><input id="leasePay" value="2500" inputmode="decimal"></div><div class="field"><label>מקדמה / תשלום התחלתי</label><input id="leaseDown" value="5000" inputmode="decimal"></div><div class="field"><label>משך הליסינג (חודשים)</label><input id="leaseMonths" value="36" inputmode="numeric"></div><div class="field"><label>ק"מ בשנה</label><input id="leaseKm" value="15000" inputmode="decimal"></div></div></div>
+<div class="grid" style="margin-top:15px"><div class="field"><label>ק"מ בחודש</label><input id="km" value="1200" inputmode="decimal"></div><div class="field"><label>צריכת דלק (ק"מ לליטר)</label><input id="eff" value="14" inputmode="decimal"></div><div class="field"><label>מחיר ליטר דלק</label><input id="fuel" value="7.2" inputmode="decimal"></div><div class="field"><label>ביטוח + טיפולים + טסט לחודש</label><input id="fixed" value="650" inputmode="decimal"></div><div class="field"><label>ירידת ערך משוערת לחודש</label><input id="depr" value="700" inputmode="decimal"></div></div>
+<div class="buttons"><button class="btn light" onclick="backCalc()">→ חזרה</button><button class="btn dark" onclick="analyze()">נתח לי את העסקה</button></div><div id="err"></div>
+</div>
+</section>
+
+<section class="page" id="result">
+<div class="card"><div class="resultHero"><div class="score" id="score">—</div><div><h2 id="verdict">הניתוח מוכן</h2><p id="verdictText">—</p></div></div>
+<div class="bigLabel">עלות חודשית משוערת</div><div class="big" id="total">0 ₪</div><div class="small" id="ownershipNote">—</div>
+<div class="resultGrid"><div class="panel"><h3>לאן הכסף הולך?</h3><div id="bars"></div></div><div class="panel"><h3>המספרים החשובים</h3><div class="metrics"><div class="metric"><small>מההכנסה</small><b id="ratio">—</b></div><div class="metric"><small>עלות שנתית</small><b id="annual">—</b></div><div class="metric"><small>מימון / ליסינג</small><b id="financeOut">—</b></div><div class="metric"><small>דלק</small><b id="fuelOut">—</b></div></div></div></div>
+<div class="advice" id="advice"></div>
+<div class="tradeBox" id="tradeSummary"></div>
+<div class="nextIdea"><h3>🤖 רוצה לדעת אם המחיר שקיבלת באמת טוב?</h3><p>זה השלב הבא של CarWise: ניתוח AI של העסקה, השוואה לרכבים אחרים והערכת המחיר מול השוק.</p><button class="btn dark" onclick="show('premium')">מה מקבלים ב־Premium? →</button></div>
+<div class="fine">החישוב הוא הערכה בלבד ואינו ייעוץ פיננסי. תנאי מימון, ביטוח, תחזוקה, ירידת ערך ותנאי ליסינג בפועל משתנים לפי הרכב והעסקה.</div></div></section>
+
+<section class="page" id="search">
+<div class="card"><div class="sectionHead"><div><h2>🔎 מצא רכב שמתאים לך</h2><p>בגרסה הזאת אנחנו בונים את מנגנון החיפוש. הפילטרים כבר מוכנים להמשך חיבור למאגר רכבים אמיתי.</p></div><span class="pill">חיפוש חכם</span></div>
+<div class="filters"><div class="filter"><label>תקציב עד</label><input id="fPrice" value="150000"></div><div class="filter"><label>סוג רכב</label><select id="fType"><option>הכול</option><option>משפחתי</option><option>קטן / עירוני</option><option>SUV / פנאי</option><option>ספורט / פרימיום</option></select></div><div class="filter"><label>שנתון מינימלי</label><select id="fYear"><option>הכול</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option></select></div><div class="filter"><label>החזר חודשי עד</label><input id="fPay" value="3000"></div></div>
+<div class="filters" style="margin-top:11px"><div class="filter"><label>דלק</label><select><option>הכול</option><option>בנזין</option><option>היברידי</option><option>חשמלי</option><option>דיזל</option></select></div><div class="filter"><label>גיר</label><select><option>הכול</option><option>אוטומטי</option><option>ידני</option></select></div><div class="filter"><label>ק"מ עד</label><input value="100000"></div><div class="filter"><label>מיקום</label><select><option>כל הארץ</option><option>מרכז</option><option>צפון</option><option>דרום</option></select></div></div>
+<div class="buttons"><button class="btn blue" onclick="filterDemo()">הצג רכבים מתאימים</button><button class="btn light" onclick="toast('שמירת חיפוש תתווסף עם מערכת משתמשים')">♡ שמור חיפוש</button></div>
+<div class="resultsHead"><h3 id="matches">רכבים שעשויים להתאים</h3><select class="sort"><option>הכי רלוונטי</option><option>המחיר הנמוך ביותר</option><option>השנה החדשה ביותר</option></select></div>
+<div class="cars" id="cars"></div>
+</div></section>
+
+<section class="page" id="premium">
+<div class="card premium"><h2>⭐ CarWise Premium</h2><p>המחשבון החינמי נותן לך את הבסיס. Premium יהפוך את CarWise לעוזר האישי שלך בקניית רכב.</p>
+<div class="plans"><div class="plan"><h3>Free</h3><div class="planPrice">0 ₪</div><ul><li>מחשבון עלות רכב</li><li>בדיקת מימון וליסינג</li><li>קיזוז רכב קיים</li><li>חיפוש בסיסי</li></ul><button class="payBtn" onclick="show('calculator')">התחל בחינם</button></div>
+<div class="plan featured"><h3>Premium</h3><div class="planPrice">19.90 ₪ <small>/ חודש</small></div><ul><li>ניתוח AI של עסקאות</li><li>השוואת עד 5 רכבים</li><li>שמירת רכבים וחיפושים</li><li>התראות על ירידות מחיר</li><li>דוח קנייה אישי</li><li>כלי "כמה רכב אני יכול להרשות לעצמי?"</li></ul><button class="payBtn" onclick="toast('בשלב הבא נחבר מערכת תשלום אמיתית')">הצטרף ל־Premium</button></div></div>
+<div class="payNote">המחיר הוא הדגמה בלבד. אין חיוב בפועל בגרסת האב־טיפוס.</div></div>
+<div class="card"><div class="sectionHead"><div><h2>למה זה מודל טוב?</h2><p>הערך של CarWise לא נגמר אחרי חישוב אחד — הוא יכול ללוות את המשתמש לאורך כל תהליך הקנייה.</p></div></div><div class="help"><div class="helpItem">🔔<strong>התראות</strong><span>חיפוש שמור יכול להפוך לסיבה לחזור לאתר כשמחיר יורד או מופיעה עסקה חדשה.</span></div><div class="helpItem">🤖<strong>AI אישי</strong><span>המשתמש יכול להעלות עסקה ולקבל הסבר ברור לפני שהוא מתחייב.</span></div><div class="helpItem">📈<strong>מעקב</strong><span>שמירת רכבים והשוואות מאפשרת למשתמש להמשיך מאותה נקודה גם בביקור הבא.</span></div></div></div>
+</section>
+</main>
+
+<div class="toast" id="toast"></div><div class="footer">CarWise · אבטיפוס מוצר · הנתונים לצורך המחשה בלבד</div>
+
+<script>
+const V=id=>Number(String(document.getElementById(id)?.value||'').replace(/,/g,''))||0;
+const M=x=>Math.round(x).toLocaleString('he-IL')+' ₪';
+function hidePages(){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'))}
+function show(id){hidePages();let p=document.getElementById(id==='home'?'homePage':id);if(p)p.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='search')renderCars()}
+function home(){show('home')}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2600)}
+function toggleMode(){let lease=document.getElementById('lease').checked;document.getElementById('buyFields').style.display=lease?'none':'block';document.getElementById('leaseFields').style.display=lease?'block':'none'}
+function nextCalc(){
+let trade=Math.max(0,V('trade')-V('tradeDebt'));document.getElementById('tradeResult').style.display='block';document.getElementById('tradeResult').textContent=trade>0?'הרכב הקיים שלך יכול להקטין את העסקה בכ־'+M(trade)+'.':'אין כרגע הון נטו לקיזוז מהעסקה.';
+document.getElementById('calc2').style.display='block';document.getElementById('calc2').scrollIntoView({behavior:'smooth'})
+}
+function backCalc(){document.getElementById('calc2').style.display='none';window.scrollTo({top:document.getElementById('calculator').offsetTop-80,behavior:'smooth'})}
+function analyze(){
+let price=V('carPrice'),income=V('income'),trade=Math.max(0,V('trade')-V('tradeDebt')),mode=document.getElementById('lease').checked?'lease':document.getElementById('cash').checked?'cash':'buy',km=V('km'),eff=V('eff'),fuel=V('fuel'),fixed=V('fixed'),depr=V('depr'),finance=0;
+let err=document.getElementById('err');err.style.display='none';
+if(price<=0||income<=0||eff<=0){err.textContent='יש להזין מחיר רכב, הכנסה ונתונים תקינים.';err.style.display='block';return}
+if(mode==='lease'){finance=V('leasePay');}else if(mode==='cash'){finance=0}else{let loan=Math.max(0,price-trade-V('down')),r=V('rate')/100/12,n=V('months');finance=loan===0?0:(r===0?loan/n:loan*r/(1-Math.pow(1+r,-n)))}
+let fuelCost=km/eff*fuel,total=finance+fuelCost+fixed+(mode==='lease'?0:depr),ratio=total/income*100;
+let title='העסקה נראית סבירה',txt='לפי הנתונים שהוזנו, העלות החודשית נמצאת בטווח סביר יחסית להכנסה.',cls='good';
+if(ratio>=35){title='העסקה יקרה ביחס להכנסה';txt='העלות החודשית גבוהה משמעותית. כדאי לבדוק רכב זול יותר, מימון אחר או ליסינג מתאים יותר.';cls='bad'}else if(ratio>=25){title='כדאי לבדוק את העסקה';txt='העלות משמעותית ביחס להכנסה. לפני החלטה, השווה לפחות חלופה אחת זולה יותר.';cls='warn'}
+document.getElementById('score').textContent=Math.max(0,Math.min(100,Math.round(100-ratio*1.5)));
+document.getElementById('verdict').textContent=title;document.getElementById('verdictText').textContent=txt;document.getElementById('total').textContent=M(total)+' / חודש';document.getElementById('ratio').textContent=ratio.toFixed(1)+'%';document.getElementById('annual').textContent=M(total*12);document.getElementById('financeOut').textContent=M(finance);document.getElementById('fuelOut').textContent=M(fuelCost);
+document.getElementById('ownershipNote').textContent=mode==='lease'?'העלות כוללת תשלום ליסינג ודלק, ללא ירידת ערך שנפרדת בדרך כלל בעסקת ליסינג.':'העלות כוללת מימון, דלק, הוצאות שוטפות וירידת ערך.';
+let items=[['מימון / ליסינג',finance],['דלק',fuelCost],['ביטוח וטיפולים',fixed],['ירידת ערך',mode==='lease'?0:depr]],max=Math.max(...items.map(x=>x[1]),1);
+document.getElementById('bars').innerHTML=items.map(x=>'<div class="barRow"><div class="barTop"><span>'+x[0]+'</span><strong>'+M(x[1])+'</strong></div><div class="track"><div class="fill" style="width:'+Math.max(2,x[1]/max*100)+'%"></div></div></div>').join('');
+let a=document.getElementById('advice');a.className='advice '+cls;a.textContent='עלות הרכב המשוערת היא כ־'+ratio.toFixed(1)+'% מההכנסה נטו שלך. שווי נטו משוער של הרכב הקיים: '+M(trade)+'.';
+document.getElementById('tradeSummary').innerHTML='<h3>🔄 הרכב הקיים שלך</h3><p style="margin:5px 0;color:#667085;font-size:13px">שווי משוער: <strong>'+M(V('trade'))+'</strong> · יתרת הלוואה: <strong>'+M(V('tradeDebt'))+'</strong> · הון נטו לעסקה: <strong>'+M(trade)+'</strong></p><p style="margin:8px 0 0;color:#087443;font-size:13px;font-weight:800">במקרה שלך, רכב ב־'+M(price)+' עם רכב קיים בשווי '+M(V('trade'))+' אינו בהכרח עסקה של 150,000 ₪ במימון — ההון מהרכב הקיים משנה את התמונה.</p>';
+show('result')
+}
+const demoCars=[['Toyota Corolla','2023','משפחתית','112,000 ₪','🚗','92'],['Hyundai Tucson','2022','SUV / פנאי','139,000 ₪','🚙','88'],['Mazda 3','2023','משפחתית','118,000 ₪','🚘','90'],['Kia Niro','2024','היברידי','146,000 ₪','🚗','94'],['Skoda Octavia','2022','משפחתית','105,000 ₪','🚘','86'],['Tesla Model 3','2023','חשמלי','149,000 ₪','⚡','91']];
+function renderCars(list=demoCars){document.getElementById('cars').innerHTML=list.map((c,i)=>'<div class="car"><div class="carImg">'+c[4]+'<button class="heart" onclick="saveCar('+i+')">♡</button></div><div class="carBody"><h4>'+c[0]+'</h4><div class="carMeta">'+c[1]+' · '+c[2]+'</div><div class="carPrice">'+c[3]+'</div><span class="carScore">CarWise '+c[5]+'/100</span></div></div>').join('')}
+function filterDemo(){let max=V('fPrice'),pay=V('fPay');let list=demoCars.filter(c=>Number(c[3].replace(/[^\d]/g,''))<=max);document.getElementById('matches').textContent=list.length+' רכבים מתאימים';renderCars(list)}
+function saveCar(i){toast('הרכב נשמר. בשלב הבא נוסיף חשבון אישי והתראות מחיר.')}
+renderCars();
+</script>
+</body></html>
